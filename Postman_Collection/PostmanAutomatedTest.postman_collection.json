@@ -25,9 +25,12 @@
 					"raw": "https://newrtfistika.eastus.cloudapp.azure.com/submit",
 					"protocol": "https",
 					"host": [
-						"newrtfistika.eastus.cloudapp.azure.com"
+						"newrtfistika",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
 					],
-					"port": "8081",
 					"path": [
 						"submit"
 					]

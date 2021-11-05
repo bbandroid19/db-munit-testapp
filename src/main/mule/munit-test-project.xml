@@ -10,11 +10,12 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 		<http:listener-connection host="0.0.0.0" port="8081" />
 	</http:listener-config>
 	<db:config name="Database_Config" doc:name="Database Config" doc:id="7c2ae8b6-5272-4ee1-99d4-9f1bb4bf61a2" >
-		<db:my-sql-connection host="congo.c3w6upfzlwwe.us-west-1.rds.amazonaws.com" port="3306" user="mulesoft" password="mulesoft" database="congo" />
-		<db:connection-properties >
+		<db:my-sql-connection host="congo.c3w6upfzlwwe.us-west-1.rds.amazonaws.com" port="3306" user="mulesoft" password="mulesoft" database="congo" >
+			<db:connection-properties >
 				<db:connection-property key="useSSL" value="false" />
 				<db:connection-property key="autoReconnect" value="true" />
 			</db:connection-properties>
+		</db:my-sql-connection>
 	</db:config>
 	<configuration-properties doc:name="Configuration properties" doc:id="3cfcc2dd-1087-4be2-b320-76d51c4ccd61" file="db.properties" />
 	<flow name="munit-test-projectFlow" doc:id="11c400dc-ef27-4db0-8eeb-32847536e516" >

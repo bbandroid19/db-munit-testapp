@@ -4,8 +4,8 @@
 
 	<groupId>com.mycompany</groupId>
 	<artifactId>munit-test-project</artifactId>
-	<version>1.0.1-SNAPSHOT</version>
-	<packaging>mule-application</packaging>
+	<version>1.0.2-SNAPSHOT</version>
+	<packaging>db-munit-testapp</packaging>
 
 	<name>db-munit-testapp</name>
 

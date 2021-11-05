@@ -22,10 +22,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8081/submit",
-					"protocol": "http",
+					"raw": "https://newrtfistika.eastus.cloudapp.azure.com/submit",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"newrtfistika.eastus.cloudapp.azure.com"
 					],
 					"port": "8081",
 					"path": [

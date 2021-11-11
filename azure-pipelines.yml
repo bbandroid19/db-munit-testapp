@@ -47,7 +47,32 @@ steps:
     Contents: '**/target/*.jar'
     TargetFolder: $(Build.ArtifactStagingDirectory)
     CleanTargetFolder: true
-    flattenFolders: true    
+    flattenFolders: true
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+    jdkArchitectureOption: 'x64'
+    goals: 'test $(MAVEN_OPTS) $(MAVEN_OPTS_TEST_MUNIT)'
+    sqMavenPluginVersionChoice: 'pom'
+  continueOnError: true
+  displayName: Munit Test
+- task: PublishTestResults@2
+  inputs:
+    testResultsFiles: '**/TEST-*.xml' 
+    #searchFolder: '$(System.DefaultWorkingDirectory)' # Optional
+    mergeTestResults: true # Optional
+    #failTaskOnFailedTests: false # Optional
+    # testRunTitle: APIOPS-MUNIT
+    #buildPlatform: # Optional
+    #buildConfiguration: # Optional
+    publishRunAttachments: true # Optional
+  continueOnError: true 
+  displayName: Munit Publish Report
 
 - task: PublishPipelineArtifact@1
   inputs:

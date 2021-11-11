@@ -20,10 +20,24 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	<configuration-properties doc:name="Configuration properties" doc:id="3cfcc2dd-1087-4be2-b320-76d51c4ccd61" file="db.properties" />
 	<flow name="munit-test-projectFlow" doc:id="11c400dc-ef27-4db0-8eeb-32847536e516" >
 		<http:listener doc:name="Listener" doc:id="b2b58060-a201-47ef-83ae-316b330191c7" config-ref="HTTP_Listener_config" path="/submit"/>
-		<db:select doc:name="Select" doc:id="23d4dc06-991e-4a9c-8d8a-a3dfaa28b06d" config-ref="${DB_CONFIG}">
+		<db:select doc:name="Select from contacts" doc:id="23d4dc06-991e-4a9c-8d8a-a3dfaa28b06d" config-ref="${DB_CONFIG}">
 			<db:sql ><![CDATA[SELECT * FROM contacts;]]></db:sql>
 		</db:select>
 		<ee:transform doc:name="Transform Message" doc:id="aab3ac6f-9a9f-4b3d-b576-33591d1a2994" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
+	<flow name="munit-test-projectFlow-add" doc:id="e5fb92ae-2989-4017-ad6e-3d9d857bf71c" >
+		<http:listener doc:name="Listener" doc:id="21c9e8fa-45c8-4c57-a335-def0952dd0b1" config-ref="HTTP_Listener_config" path="/customer" />
+		<db:select doc:name="Select from customers" doc:id="0d6208a2-0613-4c29-9625-d2c7488b787d" config-ref="${DB_CONFIG}" >
+			<db:sql ><![CDATA[SELECT * FROM customers;]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Copy_of_Transform Message" doc:id="e51646b0-c9b7-445e-be43-332144d3ae24" >
 			<ee:message >
 				<ee:set-payload ><![CDATA[%dw 2.0
 output application/json

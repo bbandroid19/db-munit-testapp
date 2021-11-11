@@ -32,7 +32,7 @@ payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
-	<flow name="munit-test-projectFlow-add" doc:id="e5fb92ae-2989-4017-ad6e-3d9d857bf71c" >
+	<!-- <flow name="munit-test-projectFlow-add" doc:id="e5fb92ae-2989-4017-ad6e-3d9d857bf71c" >
 		<http:listener doc:name="Listener" doc:id="21c9e8fa-45c8-4c57-a335-def0952dd0b1" config-ref="HTTP_Listener_config" path="/customer" />
 		<db:select doc:name="Select from customers" doc:id="0d6208a2-0613-4c29-9625-d2c7488b787d" config-ref="${DB_CONFIG}" >
 			<db:sql ><![CDATA[SELECT * FROM customers;]]></db:sql>
@@ -45,5 +45,5 @@ output application/json
 payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
-	</flow>
+	</flow> -->
 </mule>

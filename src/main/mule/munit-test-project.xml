@@ -32,4 +32,18 @@ payload]]></ee:set-payload>
 			</ee:message>
 		</ee:transform>
 	</flow>
+	<flow name="Copy_of_munit-test-projectFlow" doc:id="e41e870e-a161-45a2-a4d6-22d7e3fdeb9d" >
+		<http:listener doc:name="Copy_of_Listener" doc:id="c9583d33-4f64-40a1-b7b9-7b5b2a621236" config-ref="HTTP_Listener_config" path="/container" />
+		<db:select doc:name="Copy_of_Select from contacts" doc:id="e0f9e9a1-d942-4677-b167-59c8d887964a" config-ref="${DB_CONFIG}" >
+			<db:sql ><![CDATA[SELECT * FROM contacts;]]></db:sql>
+		</db:select>
+		<ee:transform doc:name="Copy_of_Transform Message" doc:id="b21ba607-5f90-46e7-adb4-3c360b57a0ff" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+payload]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
 </mule>

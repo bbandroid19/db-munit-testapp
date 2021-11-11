@@ -22,10 +22,10 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://newrtfistika.eastus.cloudapp.azure.com/submit",
+					"raw": "https://newrtfctc.eastus.cloudapp.azure.com/submit",
 					"protocol": "https",
 					"host": [
-						"newrtfistika",
+						"newrtfctc",
 						"eastus",
 						"cloudapp",
 						"azure",
